@@ -9,7 +9,7 @@ namespace CodeKatasTests
 		{
 		}
 
-		[TestCase(("samuurai"), new char[] {'a','u'})]
+		[TestCase(("sAmuurai"), new char[] {'a','u'})]
 		[TestCase(("biing  "), new char[] {'i',' '})]
 		[TestCase(("all work and no play"), new char[] {'a','l','o','n',' '})]
 		public void givenAString_DuplicateLetters_Returns_Correct_ArrayOfDuplicates(string my_string, char[] my_array)

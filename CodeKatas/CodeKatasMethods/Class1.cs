@@ -6,9 +6,9 @@ namespace CodeKatasMethods
 	public class CodeKatas
 	{
 		//returns an array of duplicate characters, spaces included.
-		public static char[] duplicateLetters(string mystring)
+		public static char[] duplicateLetters(string sstring)
 		{
-			
+			var mystring = sstring.ToLower();
 			var a_list = new List<char>();
 			var duplicate_list = new List<char>();
 			var duplicates_list2 = new List<char>();
