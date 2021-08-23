@@ -1,5 +1,7 @@
 using NUnit.Framework;
 using CodeKatasMethods;
+using System;
+
 namespace CodeKatasTests
 {
 	public class Tests
@@ -9,9 +11,11 @@ namespace CodeKatasTests
 		{
 		}
 
-		[TestCase(("sAmuurai"), new char[] {'a','u'})]
-		[TestCase(("biing  "), new char[] {'i',' '})]
-		[TestCase(("all work and no play"), new char[] {'a','l','o','n',' '})]
+		[TestCase(("sAmuurai"), new char[] { 'a', 'u' })]
+		[TestCase(("biing  "), new char[] { 'i', ' ' })]
+		[TestCase(("all work and no play"), new char[] { 'a', 'l', 'o', 'n', ' ' })]
+		[TestCase(("Nishant Mandal"), new char[] { 'n', 'a' })]
+		[Category("DuplicateLetters")]
 		public void givenAString_DuplicateLetters_Returns_Correct_ArrayOfDuplicates(string my_string, char[] my_array)
 		{
 			var result_array = CodeKatas.duplicateLetters(my_string);
@@ -21,9 +25,35 @@ namespace CodeKatasTests
 			{
 				Assert.That(expected_array, Contains.Item(chara));
 			}
-			
+
 		}
 
+		//FibonacciSummerUpper Tests
+
+		[TestCase(1,1)]
+		[TestCase(15, 1596)]
+		[TestCase(5, 12)]
+		public void givenARangeOfValues_FibonacciSummerUpper_Returns_ExpectedOutput(int n, long sum)
+		{
+			var expectedsum = sum;
+			var resultsum = CodeKatas.FibonacciSummerUpper(n);
+			Assert.That(expectedsum, Is.EqualTo(resultsum));
+		}
+
+		[TestCase(0)]
+		[TestCase(-10)]
+		public void givenZeroOrANumberLessThan_FibonacciSummerUpper_ThowsException(int n)
+		{
+			try
+			{
+				CodeKatas.FibonacciSummerUpper(n);
+				Assert.Fail();
+			}
+			catch (ArgumentOutOfRangeException e)
+			{
+				Assert.Pass();
+			}
+		}
 
 	}
 }
