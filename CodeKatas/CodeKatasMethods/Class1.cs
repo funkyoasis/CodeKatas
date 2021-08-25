@@ -39,21 +39,38 @@ namespace CodeKatasMethods
 		}
 		public static long FibonacciSummerUpper(int n)
 		{
-			if (n <= 0)
+
+			
+			if (n < 0)
 			{
 				throw new ArgumentOutOfRangeException();
 			}
 			long sum = 0;
-			var doubleArray = new long[2] {0,1};
-			for (int i = 1; i <= n; i++)
+			long firstnumber = 0;
+			long secondnumber = 1;
+			long thirdnumber =0;
+			//var doubleArray = new long[2] { 0, 1 };
+			for (int i = 0; i <= n; i++)
 			{
-				long newValue = doubleArray[0] + doubleArray[1];
-				long oldValue = doubleArray[1];
-				doubleArray[0] = oldValue;
-				doubleArray[1] = newValue;
-				sum += oldValue;
+				//long newValue = doubleArray[0] + doubleArray[1];
+				//long oldValue = doubleArray[1];
+				//doubleArray[0] = oldValue;
+				//doubleArray[1] = newValue;
+				//sum += oldValue;
+
+				thirdnumber = firstnumber + secondnumber;
+				firstnumber = secondnumber;
+				secondnumber = thirdnumber;
+				
+
 			}
-			return sum;
+
+			return thirdnumber-1;
+
+
+
+			
+
 		}
 	}
 }

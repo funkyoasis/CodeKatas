@@ -31,6 +31,8 @@ namespace CodeKatasTests
 		//FibonacciSummerUpper Tests
 
 		[TestCase(1,1)]
+		[TestCase(0, 0)]
+		[TestCase(3, 4)]
 		[TestCase(15, 1596)]
 		[TestCase(5, 12)]
 		public void givenARangeOfValues_FibonacciSummerUpper_Returns_ExpectedOutput(int n, long sum)
@@ -40,10 +42,12 @@ namespace CodeKatasTests
 			Assert.That(expectedsum, Is.EqualTo(resultsum));
 		}
 
-		[TestCase(0)]
+		//[TestCase(0)]
 		[TestCase(-10)]
 		public void givenZeroOrANumberLessThan_FibonacciSummerUpper_ThowsException(int n)
 		{
+			Assert.That(() => CodeKatas.FibonacciSummerUpper(n), Throws.TypeOf<ArgumentOutOfRangeException>());
+			/*
 			try
 			{
 				CodeKatas.FibonacciSummerUpper(n);
@@ -53,6 +57,7 @@ namespace CodeKatasTests
 			{
 				Assert.Pass();
 			}
+			*/
 		}
 
 	}
